@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		
+        .container{
+            max-width: 500px;
+            margin: auto;
+        }
+        #one, #two, #three, #four, #five, #six, #seven, #eight, #nine, #zero, #mode, #clear, #backs, #onehalf, #raisedto, #rot, #divi, #multi, #minus, #plus, #eq {
+            padding:10px;
+            width: 50px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bolder;
+        }
+        #ans{
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin:auto;
+            font-size: 18px;
+            font-weight: bold;
+            color: black;
+            border-radius: 20px;
+            cursor: no-drop;
+		}
+        #plus{
+            height: 80px;
+        }
+        #eq{
+            width:100px;
+            background-color: lightgreen;
+            margin-left: 2px;
+        }
+        #backs{
+            background-color: lightcoral;
+        }
+        #plus,
+        #minus,
+        #multi,
+        #divi,
+        #mode{
+            background-color: lightyellow;
+        }
+
+	</style>
+	<script type="text/javascript">
+		
+		var hld=0;
+		var sign;
+		function val7(){
+			var a = document.getElementById('seven').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + a;
+			 document.getElementById('ans').value = ans;
+		}
+		function val8(){
+			var b = document.getElementById('eight').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + b;
+			 document.getElementById('ans').value = ans;
+		}
+		function val9(){
+			var c = document.getElementById('nine').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + c;
+			 document.getElementById('ans').value = ans;
+		}
+		function val4(){
+			var d = document.getElementById('four').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + d;
+			 document.getElementById('ans').value = ans;
+		}
+		function val5(){
+			var e = document.getElementById('five').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + e;
+			 document.getElementById('ans').value = ans;
+
+		}
+		function val6(){
+			var f = document.getElementById('six').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + f;
+			 document.getElementById('ans').value = ans;
+			
+		}
+		function val1(){
+			var g = document.getElementById('one').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + g;
+			 document.getElementById('ans').value = ans;
+			
+		}
+		function val2(){
+			var h = document.getElementById('two').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + h;
+			 document.getElementById('ans').value = ans;
+			
+		}
+		function val3(){
+			var i = document.getElementById('three').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + i;
+			 document.getElementById('ans').value = ans;
+			
+		}
+		function val0(){
+			var j = document.getElementById('zero').value;
+			var ans = document.getElementById('ans').value;
+			ans = ans + j;
+			 document.getElementById('ans').value = ans;
+			
+		}
+		function valC(){
+			document.getElementById('ans').value=null;
+		}
+		function plus(){
+			hld = document.getElementById('ans').value;
+			document.getElementById('ans').value=null;
+			sign = document.getElementById('plus').value;
+
+		}
+		function minu(){
+			hld = document.getElementById('ans').value;
+			document.getElementById('ans').value=null;
+			sign = document.getElementById('minus').value;
+
+		}
+		function multip(){
+			hld = document.getElementById('ans').value;
+			document.getElementById('ans').value=null;
+			sign = document.getElementById('multi').value;
+
+		}
+		function div(){
+			hld = document.getElementById('ans').value;
+			document.getElementById('ans').value=null;
+			sign = document.getElementById('divi').value;
+
+		}
+		function mod(){
+			hld = document.getElementById('ans').value;
+			document.getElementById('ans').value=null;
+			sign = document.getElementById('mode').value;
+		}
+		function backtik(){
+			var str = document.getElementById('ans').value;
+			var len = str.length;
+			var ans = str.substring(0,len-1);
+			document.getElementById('ans').value = ans;
+		}
+
+		function half() {
+			hold = document.getElementById('ans').value;
+			var hal = hold;
+			document.getElementById('ans').value = 1/hal;
+		}
+		function raised(){
+			hold = document.getElementById('ans').value;
+			var hal = hold;
+			document.getElementById('ans').value = hal*hal;
+		}
+		function root(){
+			hold = document.getElementById('ans').value;
+			var hal = hold;
+			document.getElementById('ans').value = Math.sqrt(hal);
+		}
+
+		function sum(){
+			var add=0;
+			var hold=0;
+			hold=document.getElementById('ans').value;
+			console.log(hold);
+
+			if(sign == "+"){
+				add = parseInt(hld) + parseInt(hold);
+				
+			}
+			else if (sign=="-") {
+				add = parseInt(hld) - parseInt(hold);
+				
+			}
+			else if (sign=="*") {
+				add = parseInt(hld) * parseInt(hold);
+				
+			}
+			else if (sign=="/") {
+				add = parseInt(hld) / parseInt(hold);
+				
+			}
+			else if(sign=="%"){
+				add = parseInt(hld) % parseInt(hold);
+			}
+
+			document.getElementById('ans').value = add;
+
+		}
+	</script>
+</head>
+<body>
+
+<div class="container">
+	
+        <input type="text" placeholder="0"style="text-align: right;" id="ans" name="" disabled>
+<table align="center">
+        <tr>
+            
+        </tr>
+		<tr>
+			<td><input type="button" value="%" onclick="mod()" id="mode" name=""></td>
+			<td><input type="button" value="CE" onclick="valC()" id="clear" name=""></td>
+			<td><input type="button" value=" C " onclick="valC()" id="clear" name=""></td>
+			<td><input type="button" value="<=" onclick="backtik()"id="backs" name=""></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="½" onclick="half()" id="onehalf"> </td>
+			<td><input type="button" value="n²" onclick="raised()" id="raisedto"></td>
+			<td><input type="button" value="√n" onclick="root()" id="rot"></td>
+			<td><input type="button" value="÷" onclick="div()" id="divi" name=""></td>
+
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="val7()" id="seven" name=""></td>
+			<td><input type="button" value="8" onclick="val8()" id="eight" name=""></td>
+			<td><input type="button" value="9" onclick="val9()" id="nine" name=""></td>
+			<td><input type="button" value="x" onclick="multip()" id="multi" name=""></td>
+
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="val4()" id="four" name=""></td>
+			<td><input type="button" value="5" onclick="val5()" id="five" name=""></td>
+			<td><input type="button" value="6" onclick="val6()" id="six" name=""></td>
+			<td><input type="button" value="-" onclick="minu()" id="minus" name=""></td>
+
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="val1()" id="one" name=""></td>
+			<td><input type="button" value="2" onclick="val2()" id="two" name=""></td>
+			<td><input type="button" value="3" onclick="val3()" id="three" name=""></td>
+			<td rowspan="2"><input type="button" value="+" onclick="plus()" id="plus" name=""></td>
+
+		</tr>
+		<tr>
+			<!-- <td><input type="button" value=". " onclick="()" id="dot" name=""></td> -->
+			<td><input type="button" value="0" onclick="val0()" id="zero" name=""></td>
+			<td colspan="2"><input type="button" value="=" onclick="sum()" id="eq" name=""></td>
+		</tr>	
+</table>
+	
+	
+
+</div>
+	
+
+
+</body>
+</html>
